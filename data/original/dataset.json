@@ -1,0 +1,282 @@
+[
+    {
+        "image_path": "Airplane/000000052017.jpg",
+        "category": "Airplane",
+        "type": "Glider",
+        "scenes": [
+            "Runway",
+            "Cloud"
+        ]
+    },
+    {
+        "image_path": "Airplane/000000323709.jpg",
+        "category": "Airplane",
+        "type": "Aeroplane",
+        "scenes": [
+            "Runway",
+            "Cloud"
+        ]
+    },
+    {
+        "image_path": "Airplane/000000452122.jpg",
+        "category": "Airplane",
+        "type": "Aeroplane",
+        "scenes": [
+            "Runway",
+            "Cloud"
+        ]
+    },
+    {
+        "image_path": "Airplane/000000517523.jpg",
+        "category": "Airplane",
+        "type": "Aeroplane",
+        "scenes": [
+            "Runway",
+            "Cloud"
+        ]
+    },
+    {
+        "image_path": "Airplane/000000005477.jpg",
+        "category": "Airplane",
+        "type": "Aeroplane",
+        "scenes": [
+            "Runway",
+            "Cloud"
+        ]
+    },
+    {
+        "image_path": "Airplane/000000553094.jpg",
+        "category": "Airplane",
+        "type": "F15",
+        "scenes": [
+            "Runway",
+            "Cloud"
+        ]
+    },
+    {
+        "image_path": "Airplane/000000090631.jpg",
+        "category": "Airplane",
+        "type": "Fighter",
+        "scenes": [
+            "Runway",
+            "Cloud"
+        ]
+    },
+    {
+        "image_path": "Airplane/000000084752.jpg",
+        "category": "Airplane",
+        "type": "Fighter",
+        "scenes": [
+            "Runway",
+            "Cloud"
+        ]
+    },
+    {
+        "image_path": "Airplane/000000424776.jpg",
+        "category": "Airplane",
+        "type": "Fighter",
+        "scenes": [
+            "Runway",
+            "Cloud"
+        ]
+    },
+    {
+        "image_path": "Airplane/000000044652.jpg",
+        "category": "Airplane",
+        "type": "Glider",
+        "scenes": [
+            "Runway",
+            "Cloud"
+        ]
+    },
+    {
+        "image_path": "Automobile/000000460347.jpg",
+        "category": "Automobile",
+        "type": "Bus",
+        "scenes": [
+            "Highway",
+            "City"
+        ]
+    },
+    {
+        "image_path": "Automobile/000000165039.jpg",
+        "category": "Automobile",
+        "type": "Bus",
+        "scenes": [
+            "Highway",
+            "City"
+        ]
+    },
+    {
+        "image_path": "Automobile/000000042070.jpg",
+        "category": "Automobile",
+        "type": "Bus",
+        "scenes": [
+            "Highway",
+            "City"
+        ]
+    },
+    {
+        "image_path": "Automobile/000000296224.jpg",
+        "category": "Automobile",
+        "type": "Bus",
+        "scenes": [
+            "Highway",
+            "City"
+        ]
+    },
+    {
+        "image_path": "Automobile/000000122606.jpg",
+        "category": "Automobile",
+        "type": "Bus",
+        "scenes": [
+            "Highway",
+            "City"
+        ]
+    },
+    {
+        "image_path": "Automobile/000000555050.jpg",
+        "category": "Automobile",
+        "type": "Car",
+        "scenes": [
+            "Highway",
+            "City"
+        ]
+    },
+    {
+        "image_path": "Automobile/000000097679.jpg",
+        "category": "Automobile",
+        "type": "Car",
+        "scenes": [
+            "Highway",
+            "City"
+        ]
+    },
+    {
+        "image_path": "Automobile/000000480985.jpg",
+        "category": "Automobile",
+        "type": "Motorcycle",
+        "scenes": [
+            "Highway",
+            "City"
+        ]
+    },
+    {
+        "image_path": "Automobile/000000165518.jpg",
+        "category": "Automobile",
+        "type": "Motorcycle",
+        "scenes": [
+            "Highway",
+            "City"
+        ]
+    },
+    {
+        "image_path": "Automobile/000000230008.jpg",
+        "category": "Automobile",
+        "type": "Motorcycle",
+        "scenes": [
+            "Highway",
+            "City"
+        ]
+    },
+    {
+        "image_path": "Animal/000000475779.jpg",
+        "category": "Animal",
+        "type": "Elephant",
+        "scenes": [
+            "Beach",
+            "Forest",
+            "Desert"
+        ]
+    },
+    {
+        "image_path": "Animal/000000125211.jpg",
+        "category": "Animal",
+        "type": "Zebra",
+        "scenes": [
+            "Beach",
+            "Forest",
+            "Desert"
+        ]
+    },
+    {
+        "image_path": "Animal/000000575357.jpg",
+        "category": "Animal",
+        "type": "Dog",
+        "scenes": [
+            "Beach",
+            "Forest",
+            "Desert"
+        ]
+    },
+    {
+        "image_path": "Animal/000000079229.jpg",
+        "category": "Animal",
+        "type": "Horse",
+        "scenes": [
+            "Beach",
+            "Forest",
+            "Desert"
+        ]
+    },
+    {
+        "image_path": "Animal/000000237864.jpg",
+        "category": "Animal",
+        "type": "Elephant",
+        "scenes": [
+            "Beach",
+            "Forest",
+            "Desert"
+        ]
+    },
+    {
+        "image_path": "Animal/000000278353.jpg",
+        "category": "Animal",
+        "type": "Sheep",
+        "scenes": [
+            "Beach",
+            "Forest",
+            "Desert"
+        ]
+    },
+    {
+        "image_path": "Animal/000000176606.jpg",
+        "category": "Animal",
+        "type": "Sheep",
+        "scenes": [
+            "Beach",
+            "Forest",
+            "Desert"
+        ]
+    },
+    {
+        "image_path": "Animal/000000319721.jpg",
+        "category": "Animal",
+        "type": "Horse",
+        "scenes": [
+            "Beach",
+            "Forest",
+            "Desert"
+        ]
+    },
+    {
+        "image_path": "Animal/000000186296.jpg",
+        "category": "Animal",
+        "type": "Cat",
+        "scenes": [
+            "Beach",
+            "Forest",
+            "Desert"
+        ]
+    },
+    {
+        "image_path": "Animal/000000080666.jpg",
+        "category": "Animal",
+        "type": "Cat",
+        "scenes": [
+            "Beach",
+            "Forest",
+            "Desert"
+        ]
+    }
+]
