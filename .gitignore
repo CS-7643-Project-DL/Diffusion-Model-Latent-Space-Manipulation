@@ -1,1 +1,6 @@
 results/
+demo/
+mmenv/
+__pycache__/
+.git/
+test.py
