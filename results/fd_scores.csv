@@ -1,0 +1,34 @@
+Experiment,Category,Scene,FID Score
+Aggregated Attention,Airplane,Cloud,1.9186389446258545
+Aggregated Attention,Airplane,Runway,0.9032936692237854
+Aggregated Attention,Airplane,All,1.2093641757965088
+Aggregated Attention,Automobile,Highway,2.301255226135254
+Aggregated Attention,Automobile,City,1.7817094326019287
+Aggregated Attention,Automobile,All,1.6932247877120972
+Aggregated Attention,Animal,Forest,2.806584119796753
+Aggregated Attention,Animal,Desert,2.6860835552215576
+Aggregated Attention,Animal,Beach,2.0453455448150635
+Aggregated Attention,Animal,All,2.004786252975464
+Aggregated Attention,All,All,1.1718618869781494
+Scene-Based,Airplane,Cloud,5.92770528793335
+Scene-Based,Airplane,Runway,9.170324325561523
+Scene-Based,Airplane,All,7.076297283172607
+Scene-Based,Automobile,Highway,18.458791732788086
+Scene-Based,Automobile,City,22.721593856811523
+Scene-Based,Automobile,All,20.117990493774414
+Scene-Based,Animal,Forest,25.274728775024414
+Scene-Based,Animal,Desert,23.48628807067871
+Scene-Based,Animal,Beach,29.792938232421875
+Scene-Based,Animal,All,25.771202087402344
+Scene-Based,All,All,15.517328262329102
+Stable Diffusion,Airplane,Cloud,8.238109588623047
+Stable Diffusion,Airplane,Runway,5.605053901672363
+Stable Diffusion,Airplane,All,5.633755207061768
+Stable Diffusion,Automobile,Highway,14.764474868774414
+Stable Diffusion,Automobile,City,6.946680068969727
+Stable Diffusion,Automobile,All,9.20418930053711
+Stable Diffusion,Animal,Forest,12.878411293029785
+Stable Diffusion,Animal,Desert,27.177175521850586
+Stable Diffusion,Animal,Beach,22.290679931640625
+Stable Diffusion,Animal,All,17.196033477783203
+Stable Diffusion,All,All,8.55948257446289

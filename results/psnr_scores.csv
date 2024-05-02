@@ -1,0 +1,34 @@
+Experiment,Category,Scene,PSNR Score
+Aggregated Attention,Airplane,Cloud,15.594848698577266
+Aggregated Attention,Airplane,Runway,18.477993549998928
+Aggregated Attention,Airplane,All,17.036421124288097
+Aggregated Attention,Automobile,Highway,13.116278734021307
+Aggregated Attention,Automobile,City,13.276553252773624
+Aggregated Attention,Automobile,All,13.196415993397466
+Aggregated Attention,Animal,Forest,13.992664718821857
+Aggregated Attention,Animal,Desert,14.701662721097932
+Aggregated Attention,Animal,Beach,15.227043274886682
+Aggregated Attention,Animal,All,14.64045690493549
+Aggregated Attention,All,All,14.912434992882513
+Scene-Based,Airplane,Cloud,16.568280138775435
+Scene-Based,Airplane,Runway,16.15376711140243
+Scene-Based,Airplane,All,16.361023625088933
+Scene-Based,Automobile,Highway,13.079297005915578
+Scene-Based,Automobile,City,12.691245649599523
+Scene-Based,Automobile,All,12.88527132775755
+Scene-Based,Animal,Forest,13.662879568238964
+Scene-Based,Animal,Desert,14.054038276051415
+Scene-Based,Animal,Beach,13.893038950218966
+Scene-Based,Animal,All,13.869985598169782
+Scene-Based,All,All,14.300363814314617
+Stable Diffusion,Airplane,Cloud,10.895024601860541
+Stable Diffusion,Airplane,Runway,11.242312807989947
+Stable Diffusion,Airplane,All,11.068668704925244
+Stable Diffusion,Automobile,Highway,9.287772149737634
+Stable Diffusion,Automobile,City,8.570098206712373
+Stable Diffusion,Automobile,All,8.928935178225004
+Stable Diffusion,Animal,Forest,9.582666122921637
+Stable Diffusion,Animal,Desert,10.807544529043298
+Stable Diffusion,Animal,Beach,10.31061679490449
+Stable Diffusion,Animal,All,10.233609148956475
+Stable Diffusion,All,All,10.099433601881417

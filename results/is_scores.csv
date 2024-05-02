@@ -1,0 +1,34 @@
+Experiment,Category,Scene,IS Score
+Aggregated Attention,Airplane,Cloud,1.0
+Aggregated Attention,Airplane,Runway,1.0
+Aggregated Attention,Airplane,All,1.0138814449310303
+Aggregated Attention,Automobile,Highway,0.9999998807907104
+Aggregated Attention,Automobile,City,1.0
+Aggregated Attention,Automobile,All,1.022196650505066
+Aggregated Attention,Animal,Forest,1.0
+Aggregated Attention,Animal,Desert,0.9999998807907104
+Aggregated Attention,Animal,Beach,1.0
+Aggregated Attention,Animal,All,1.037129282951355
+Aggregated Attention,All,All,1.047149419784546
+Scene-Based,Airplane,Cloud,1.0
+Scene-Based,Airplane,Runway,1.0000001192092896
+Scene-Based,Airplane,All,1.0187028646469116
+Scene-Based,Automobile,Highway,1.0
+Scene-Based,Automobile,City,0.9999998807907104
+Scene-Based,Automobile,All,1.0213557481765747
+Scene-Based,Animal,Forest,1.0
+Scene-Based,Animal,Desert,0.9999998807907104
+Scene-Based,Animal,Beach,0.9999998807907104
+Scene-Based,Animal,All,1.0445849895477295
+Scene-Based,All,All,1.0517066717147827
+Stable Diffusion,Airplane,Cloud,1.0
+Stable Diffusion,Airplane,Runway,1.0
+Stable Diffusion,Airplane,All,1.0197477340698242
+Stable Diffusion,Automobile,Highway,1.0
+Stable Diffusion,Automobile,City,0.9999998807907104
+Stable Diffusion,Automobile,All,1.0211294889450073
+Stable Diffusion,Animal,Forest,1.0
+Stable Diffusion,Animal,Desert,1.0
+Stable Diffusion,Animal,Beach,1.0000001192092896
+Stable Diffusion,Animal,All,1.0437302589416504
+Stable Diffusion,All,All,1.0527604818344116

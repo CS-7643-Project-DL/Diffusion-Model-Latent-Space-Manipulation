@@ -9,6 +9,7 @@ from torchvision import transforms
 from PIL import Image
 from torchmetrics.image.fid import FrechetInceptionDistance
 from torchmetrics.image.inception import InceptionScore
+from torchmetrics.image import PeakSignalNoiseRatio, StructuralSimilarityIndexMeasure
 
 
 # globals
@@ -23,6 +24,23 @@ categories_scenes = {
     'Automobile': {'City', 'Highway'},
 } 
 
+
+def save_imgs(imgs, basedir, img_names, original):
+    for category in categories:
+        if original:
+            for i, img in enumerate(imgs[category]):
+                img_name = img_names[category][i]
+                save_path = f"{basedir}/{category}/{img_name}"
+                os.makedirs(os.path.dirname(save_path), exist_ok=True)
+                cv2.imwrite(save_path, img)
+        else:
+            for i, scene in enumerate(categories_scenes[category]):
+                for i, img in enumerate(imgs[category][scene]):
+                    img_name = img_names[category][i]
+                    save_path = f"{basedir}/{category}/{scene}/{img_name}"
+                    os.makedirs(os.path.dirname(save_path), exist_ok=True)
+                    cv2.imwrite(save_path, img)
+        
 def load_original_images(orig_imgs_dir):
     orig_imgs = {}
     img_names = {}
@@ -32,7 +50,7 @@ def load_original_images(orig_imgs_dir):
 
         dir_path = os.path.join(orig_imgs_dir, category)
         # loop over all images in the directory
-        img_names_list = sorted(os.listdir(dir_path))
+        img_names_list = sorted([f for f in os.listdir(dir_path) if f.endswith(('.png', '.jpg', '.jpeg', '.tiff', '.bmp', '.gif'))])
         img_names[category] = img_names_list
         for img_name in img_names_list:
             img_path = os.path.join(dir_path, img_name)  
@@ -40,57 +58,66 @@ def load_original_images(orig_imgs_dir):
             orig_imgs[category].append(img)      
     return orig_imgs, img_names
 
-def load_experiment_images(experiment_dir):
+def load_experiment_images(experiment_dir, to_list=False):
     experiment_imgs = {}
     for category in categories:
         experiment_imgs[category] = {}
         for scene in categories_scenes[category]:
             experiment_imgs[category][scene] = []
             dir_path = os.path.join(experiment_dir, category, scene)
-            for img_name in sorted(os.listdir(dir_path)):
+            # make sure only images 
+            imgs_list = sorted([f for f in os.listdir(dir_path) if f.endswith(('.png', '.jpg', '.jpeg', '.tiff', '.bmp', '.gif'))])
+            for img_name in imgs_list:
                 img = cv2.imread(os.path.join(experiment_dir, category, scene, img_name))
                 experiment_imgs[category][scene].append(img)
-            experiment_imgs[category][scene] = np.stack(experiment_imgs[category][scene], axis=0)
+            if not to_list:
+                experiment_imgs[category][scene] = np.stack(experiment_imgs[category][scene], axis=0)
     return experiment_imgs
 
-def show_img(img, save_path=None):
+def show_img(img, save_path=None, show = True):
     if save_path:
         os.makedirs(os.path.dirname(save_path), exist_ok=True)
         # save with cv2 to avoid changes in the image
         cv2.imwrite(save_path, img)
-    
-    # Get image dimensions
-    height, width, depth = img.shape
 
-    # Set DPI and calculate figure size in inches
-    dpi = 100  
-    figsize = width / float(dpi), height / float(dpi)
+    if show:
+        # Get image dimensions
+        height, width, depth = img.shape
 
-    # Create a figure with the specified size and DPI
-    plt.figure(figsize=figsize, dpi=dpi)
+        # Set DPI and calculate figure size in inches
+        dpi = 100  
+        figsize = width / float(dpi), height / float(dpi)
 
-    # Display image in notebook
-    plt.imshow(cv2.cvtColor(img, cv2.COLOR_BGR2RGB)) 
-    plt.axis('off') 
+        # Create a figure with the specified size and DPI
+        plt.figure(figsize=figsize, dpi=dpi)
 
-    
-    plt.show()
-    plt.close()
+        # Display image in notebook
+        plt.imshow(cv2.cvtColor(img, cv2.COLOR_BGR2RGB)) 
+        plt.axis('off') 
 
-def standardize_sizes(imgs, dimensions=(512, 512, 3)):
+        
+        plt.show()
+        plt.close()
+
+def standardize_sizes(imgs, dimensions=(512, 512, 3), img_names=None, save_dir=None, original=False):
     new_imgs = {}
     for category in imgs:
-        new_imgs[category] = []
         # Original images do not have scenes
-        if isinstance(imgs[category], list):
-            for img in imgs[category]:
-                new_imgs[category].append(cv2.resize(img, dimensions[:2], interpolation=cv2.INTER_AREA))
-            continue
-
-        # Experiment images have scenes
-        for scene in imgs[category]:
-            for i, img in enumerate(imgs[category][scene]):
-                imgs[category][scene][i] = cv2.resize(img, dimensions[:2], interpolation=cv2.INTER_AREA)
+        if original:
+            new_imgs[category] = []
+            for idx, img in enumerate(imgs[category]):
+                new_img = cv2.resize(img, dimensions[:2], interpolation=cv2.INTER_AREA)
+                new_imgs[category].append(new_img)
+                if save_dir:
+                    save_dir_category = os.path.join(save_dir, category)
+                    os.makedirs(save_dir_category, exist_ok=True)
+                    cv2.imwrite(f"{save_dir_category}/{img_names[category][idx]}", new_img)
+        else:
+            new_imgs[category] = {}
+            for scene in categories_scenes[category]:
+                new_imgs[category][scene] = []
+                for i, img in enumerate(imgs[category][scene]):
+                    new_imgs[category][scene].append(cv2.resize(img, dimensions[:2], interpolation=cv2.INTER_AREA))
     return new_imgs
 
 
@@ -139,12 +166,9 @@ def imgs_compare(orig_imgs: list, experiment_imgs, index: int, category, scene, 
 
 
 
-
-# Define a function to calculate Inception Score (IS)
 def compute_is_score(images):
     images = np.transpose(images, (0, 3, 1, 2))  # Channels-last to channels-first
     images = torch.tensor(images, dtype=torch.uint8)  # Convert to torch tensor
-
     # Initialize InceptionScore metric
     is_metric = InceptionScore(feature=2048)  # Using default feature extraction
     is_metric.update(images)  # Update metric with generated images
@@ -152,7 +176,6 @@ def compute_is_score(images):
 
     return is_score[0].item(), is_score[1].item()  # Return mean and standard deviation
 
-# Define a function to calculate FID score
 def compute_fid_score(real_imgs, gen_imgs):
     real_imgs = torch.tensor(real_imgs, dtype=torch.uint8)
     gen_imgs = torch.tensor(gen_imgs, dtype=torch.uint8)
@@ -161,9 +184,16 @@ def compute_fid_score(real_imgs, gen_imgs):
     real_imgs = real_imgs.permute(0, 3, 1, 2)
     gen_imgs = gen_imgs.permute(0, 3, 1, 2)
 
-    # Repeat images for FID calculation
-    real_imgs = real_imgs.repeat(2, 1, 1, 1)
-    gen_imgs = gen_imgs.repeat(2, 1, 1, 1)
+    # Repeat images for FID calculation  --- why?
+    # real_imgs = real_imgs.repeat(2, 1, 1, 1)
+    # gen_imgs = gen_imgs.repeat(2, 1, 1, 1)    
+
+    # ratio of batch size
+    ratio = real_imgs.shape[0] / gen_imgs.shape[0]
+    if ratio > 1:
+        gen_imgs = gen_imgs.repeat(int(ratio), 1, 1, 1)
+    elif ratio < 1:
+        real_imgs = real_imgs.repeat(int(1/ratio), 1, 1, 1)
 
     # Initialize FID metric
     fid = FrechetInceptionDistance(feature=64)
@@ -172,3 +202,41 @@ def compute_fid_score(real_imgs, gen_imgs):
     fid_score = fid.compute()
     return fid_score.item()
 
+
+def compute_psnr(pred_imgs, orig_imgs):
+    if np.max(pred_imgs) > 1:        
+        p_imgs = np.array(pred_imgs)/255.0
+    if np.max(orig_imgs) > 1:
+        o_imgs = np.array(orig_imgs)/255.0
+
+    p_imgs = torch.tensor(p_imgs, dtype=torch.float64)
+    o_imgs = torch.tensor(o_imgs, dtype=torch.float64)
+
+    # Batch_size * C * H * W -> Batch_size * H * W * C
+    p_imgs = p_imgs.permute(0, 3, 1, 2)
+
+    o_imgs = o_imgs.permute(0, 3, 1, 2)
+    psnr_metric = PeakSignalNoiseRatio()
+    psnr_metric.update(p_imgs, o_imgs)
+    psnr_score = psnr_metric.compute()
+    return psnr_score.item()
+
+    
+def compute_ssim(pred_imgs, orig_imgs):
+    # normalize to [0,1]
+    if np.max(pred_imgs) > 1:        
+        p_imgs = np.array(pred_imgs)/255.0
+    if np.max(orig_imgs) > 1:
+        o_imgs = np.array(orig_imgs)/255.0
+
+    p_imgs = torch.tensor(p_imgs, dtype=torch.float64)
+    o_imgs = torch.tensor(o_imgs, dtype=torch.float64)
+
+    # Batch_size * C * H * W -> Batch_size * H * W * C
+    p_imgs = p_imgs.permute(0, 3, 1, 2)
+    o_imgs = o_imgs.permute(0, 3, 1, 2)
+    
+    ssim_metric = StructuralSimilarityIndexMeasure()
+    ssim_metric.update(p_imgs, o_imgs)
+    ssim_score = ssim_metric.compute()
+    return ssim_score.item()

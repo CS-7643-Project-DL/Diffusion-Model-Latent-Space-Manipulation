@@ -1,0 +1,34 @@
+Experiment,Category,Scene,SSIM Score
+Aggregated Attention,Airplane,Cloud,0.702293336391449
+Aggregated Attention,Airplane,Runway,0.7554303407669067
+Aggregated Attention,Airplane,All,0.7288618385791779
+Aggregated Attention,Automobile,Highway,0.3957290053367615
+Aggregated Attention,Automobile,City,0.38414302468299866
+Aggregated Attention,Automobile,All,0.38993601500988007
+Aggregated Attention,Animal,Forest,0.271039754152298
+Aggregated Attention,Animal,Desert,0.2909022271633148
+Aggregated Attention,Animal,Beach,0.3020554482936859
+Aggregated Attention,Animal,All,0.28799914320309955
+Aggregated Attention,All,All,0.4430847338267735
+Scene-Based,Airplane,Cloud,0.7392350435256958
+Scene-Based,Airplane,Runway,0.7455911636352539
+Scene-Based,Airplane,All,0.7424131035804749
+Scene-Based,Automobile,Highway,0.37811723351478577
+Scene-Based,Automobile,City,0.3707735538482666
+Scene-Based,Automobile,All,0.3744453936815262
+Scene-Based,Animal,Forest,0.2921256721019745
+Scene-Based,Animal,Desert,0.2989095151424408
+Scene-Based,Animal,Beach,0.29863065481185913
+Scene-Based,Animal,All,0.2965552806854248
+Scene-Based,All,All,0.44619754808289663
+Stable Diffusion,Airplane,Cloud,0.6046848893165588
+Stable Diffusion,Airplane,Runway,0.5805078148841858
+Stable Diffusion,Airplane,All,0.5925963521003723
+Stable Diffusion,Automobile,Highway,0.2718914747238159
+Stable Diffusion,Automobile,City,0.2185329645872116
+Stable Diffusion,Automobile,All,0.24521221965551376
+Stable Diffusion,Animal,Forest,0.2044776976108551
+Stable Diffusion,Animal,Desert,0.25504809617996216
+Stable Diffusion,Animal,Beach,0.2476227730512619
+Stable Diffusion,Animal,All,0.2357161889473597
+Stable Diffusion,All,All,0.3403951014791216
