@@ -169,6 +169,8 @@ def imgs_compare(orig_imgs: list, experiment_imgs, index: int, category, scene, 
 def compute_is_score(images):
     images = np.transpose(images, (0, 3, 1, 2))  # Channels-last to channels-first
     images = torch.tensor(images, dtype=torch.uint8)  # Convert to torch tensor
+
+
     # Initialize InceptionScore metric
     is_metric = InceptionScore(feature=2048)  # Using default feature extraction
     is_metric.update(images)  # Update metric with generated images
